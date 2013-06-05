@@ -28,6 +28,7 @@ import javax.enterprise.inject.spi.BeanManager;
 import javax.enterprise.inject.spi.InjectionTarget;
 
 import org.jboss.weld.bootstrap.api.ServiceRegistry;
+import org.jboss.weld.creation.api.ConstructionContextFactory;
 import org.jboss.weld.ejb.spi.EjbDescriptor;
 
 /**
@@ -141,5 +142,10 @@ public interface WeldManager extends BeanManager, Serializable {
 
     @Override
     <T> WeldInjectionTargetFactory<T> getInjectionTargetFactory(AnnotatedType<T> type);
+
+
+    <T>ConstructionContextFactory<T> getConstructionContext(final AnnotatedType<T> type);
+
+    <T>ConstructionContextFactory<T> getConstructionContext(final Bean<T> bean);
 
 }
